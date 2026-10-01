@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horoscopos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <h1>Formulario de horoscopos</h1>
+
+    <form action="resibe-formulario" method="POST">
+
+        <br>
+
+        <div class="mb-3">
+            <label for="Nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="Nombre" name="nombre">
+        </div>
+
+        <br>
+
+        <div class="mb-3">
+            <label for="Correo" class="form-label">Correo</label>
+            <input type="email" class="form-control" id="Correo" name="correo">
+        </div>
+
+        <br>
+
+        <div class="mb-3">
+            <label for="Fecha" class="form-label">Fecha de nacimiento</label>
+            <input type="date" class="form-control" id="Fecha" name="fecha_de_nacimiento">
+        </div>
+
+        <br>
+
+        <button type="submit" class="btn btn-primary">Enviar</button>
+
+    </form>
+
+
+</body>
+
+</html>
