@@ -13,8 +13,8 @@
 
     <h1>Formulario de horoscopos</h1>
 
-    <form action="resibe-formulario" method="POST">
-
+    <form action="recibe-formulario" method="POST">
+     @csrf
         <br>
 
         <div class="mb-3">
