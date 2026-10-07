@@ -5,14 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\InformacionPersonal;
 use Illuminate\Http\Request;
 
-class InformacionPersonalController
+class InformacionPersonalController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $informacionPersonal = InformacionPersonal::all();
+
+        return view('registros')->with([
+            'informacionPersonal' => $informacionPersonal,
+        ]);
     }
 
     /**
@@ -20,7 +24,7 @@ class InformacionPersonalController
      */
     public function create()
     {
-        //
+        return view('formulario');
     }
 
     /**
@@ -28,7 +32,13 @@ class InformacionPersonalController
      */
     public function store(Request $request)
     {
-        //
+        $infoPersoal = new InformacionPersonal();
+        $infoPersoal->nombre = $request->nombre;
+        $infoPersoal->correo = $request->correo;
+        $infoPersoal->fecha_nacimiento = $request->fecha_nacimiento;
+        $infoPersoal->save();
+
+        return redirect('/horozcopos');
     }
 
     /**
