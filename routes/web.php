@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InformacionPersonalController;
 use App\Models\InformacionPersonal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -8,27 +9,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/horozcopos', function () {
-    $informacionPersonal = InformacionPersonal::all();
-    
-    // dd($informacionPersonal, 'hola', 'adios');
+Route::get('/horozcopos', [InformacionPersonalController::class, 'index']);
+Route::get('/formulario-horozcopo', [InformacionPersonalController::class, 'create']);
+Route::post('/recibe-formulario', [InformacionPersonalController::class, 'store']);
+Route::post('/detalle/{informacionPersonal}', [InformacionPersonalController::class, 'show']);
 
-    return view('registros')->with([
-        'informacionPersonal' => $informacionPersonal,
-    ]);
-});
-
-Route::get('/Formulario', function () {
-    return view('formulario');
-});
-
-Route::post('/recibe-formulario', function (Request $request) {
-    $infoPersoal = new InformacionPersonal();
-    $infoPersoal->nombre = $request->nombre;
-    $infoPersoal->correo = $request->correo;
-    $infoPersoal->fecha_nacimiento = $request->fecha_nacimiento;
-    $infoPersoal->save();
-
-    return redirect('/horozcopos');
-});
 
