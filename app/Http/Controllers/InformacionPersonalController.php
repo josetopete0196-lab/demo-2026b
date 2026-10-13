@@ -62,7 +62,12 @@ class InformacionPersonalController extends Controller
      */
     public function update(Request $request, InformacionPersonal $informacionPersonal)
     {
-        //
+        $informacionPersonal->nombre = $request->nombre;
+        $informacionPersonal->correo = $request->correo;
+        $informacionPersonal->fecha_nacimiento = $request->fecha_nacimiento;
+        $informacionPersonal->save();
+
+        return redirect()->route('informacion-personal.show', $informacionPersonal);
     }
 
     /**
@@ -70,6 +75,8 @@ class InformacionPersonalController extends Controller
      */
     public function destroy(InformacionPersonal $informacionPersonal)
     {
-        //
+        $informacionPersonal->delete();
+
+        return redirect()->route('informacion-personal.index');
     }
 }
