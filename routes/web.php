@@ -9,9 +9,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/horozcopos', [InformacionPersonalController::class, 'index']);
-Route::get('/formulario-horozcopo', [InformacionPersonalController::class, 'create']);
-Route::post('/recibe-formulario', [InformacionPersonalController::class, 'store']);
-Route::post('/detalle/{informacionPersonal}', [InformacionPersonalController::class, 'show']);
+Route::resource('informacion-personal', InformacionPersonalController::class);
+
+// Route::get('/horozcopos', [InformacionPersonalController::class, 'index']);
+// Route::get('/formulario-horozcopo', [InformacionPersonalController::class, 'create']);
+// Route::post('/recibe-formulario', [InformacionPersonalController::class, 'store']);
+// Route::get('/detalle/{informacionPersonal}', [InformacionPersonalController::class, 'show']);
+// Formulario para editar información personal
+// Actualizar información personal
+// Eliminar información personal
+
 
 
